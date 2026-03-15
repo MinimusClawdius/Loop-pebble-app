@@ -18,8 +18,6 @@ static TextLayer *s_time_date_layer;
 
 // CGM data - main display
 static TextLayer *s_cgm_value_layer;    // Large BG number
-static BitmapLayer *s_trend_layer;      // Trend arrow bitmap
-static GBitmap *s_trend_bitmap;
 static TextLayer *s_delta_layer;        // BG change
 static TextLayer *s_time_ago_layer;     // Time since reading
 
@@ -34,7 +32,6 @@ static TextLayer *s_setup_layer;
 
 static char time_date_buffer[24];
 static char cgm_value_buffer[8];
-static char delta_buffer[12];
 static char time_ago_buffer[16];
 static char iob_buffer[20];
 static char status_buffer[24];
@@ -543,7 +540,7 @@ static void main_window_load(Window *window) {
   #if DEMO_MODE
   // Show demo data immediately
   add_demo_data();
-  layer_set_hidden(s_setup_layer, true);
+  layer_set_hidden(text_layer_get_layer(s_setup_layer), true);
   #endif
 }
 
