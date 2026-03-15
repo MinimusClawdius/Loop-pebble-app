@@ -1,21 +1,14 @@
 {
   "name": "loop-cgm",
   "author": "LoopKit",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "keywords": ["pebble-app"],
   "private": true,
-  "dependencies": {
-    "pebble-clay": "^1.0.0"
-  },
+  "dependencies": {},
   "pebble": {
-    "sdkVersion": "3",
-    "capabilities": [],
-    "targetPlatforms": ["aplite", "basalt", "chalk", "diorite", "emery"],
-    "watchapp": {
-      "watchface": true
-    },
     "displayName": "Loop CGM Matrix",
     "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "sdkVersion": "3",
     "enableMultiJS": true,
     "messageKeys": {
       "KEY_GLUCOSE": 0,
@@ -27,6 +20,10 @@
       "KEY_GLUCOSE_DATE": 6,
       "KEY_THEME": 8,
       "KEY_REQUEST_DATA": 9
+    },
+    "targetPlatforms": ["aplite", "basalt", "chalk", "diorite", "emery", "flint", "gabbro"],
+    "watchapp": {
+      "watchface": true
     },
     "resources": {
       "media": []
