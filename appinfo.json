@@ -21,12 +21,6 @@
   },
   "capabilities": [],
   "resources": {
-    "media": [
-      {
-        "type": "png",
-        "name": "IMAGE_ICON",
-        "file": "images/icon.png"
-      }
-    ]
+    "media": []
   }
 }
