@@ -1,0 +1,13 @@
+{
+    "KEY_BATTERY": 5,
+    "KEY_COB": 4,
+    "KEY_GLUCOSE": 0,
+    "KEY_GLUCOSE_DATE": 6,
+    "KEY_HIGH_THRESHOLD": 11,
+    "KEY_IOB": 2,
+    "KEY_IS_CLOSED_LOOP": 3,
+    "KEY_LOW_THRESHOLD": 10,
+    "KEY_REQUEST_DATA": 9,
+    "KEY_THEME": 8,
+    "KEY_TREND": 1
+}
