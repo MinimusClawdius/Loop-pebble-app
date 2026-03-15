@@ -4,7 +4,9 @@
   "version": "3.0.0",
   "keywords": ["pebble-app"],
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "pebble-clay": "^1.0.0"
+  },
   "pebble": {
     "sdkVersion": "3",
     "capabilities": [],
@@ -23,6 +25,7 @@
       "KEY_COB": 4,
       "KEY_BATTERY": 5,
       "KEY_GLUCOSE_DATE": 6,
+      "KEY_THEME": 8,
       "KEY_REQUEST_DATA": 9
     },
     "resources": {
