@@ -8,17 +8,6 @@
 #include <pebble.h>
 #include <stdlib.h>
 
-// Helper macros
-#ifndef MIN
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
-#endif
-#ifndef MAX
-#define MAX(a, b) ((a) > (b) ? (a) : (b))
-#endif
-#ifndef CLAMP
-#define CLAMP(x, low, high) (((x) < (low)) ? (low) : (((x) > (high)) ? (high) : (x)))
-#endif
-
 // ==================== Theme Definitions ====================
 
 typedef enum {
@@ -198,7 +187,8 @@ static void aurora_draw(GContext *ctx) {
         for (int x = 0; x < 144; x += 3) {
             int y = base_y + (int)(8 * sin_lookup(TRIG_MAX_ANGLE * x / 200 + wave * 50) / TRIG_MAX_RATIO);
             int alpha = 80 - wave * 12;
-            GColor color = GColorFromRGB(0, alpha, MIN(255, alpha + 80));
+            int b_val = (alpha + 80) < 255 ? (alpha + 80) : 255;
+            GColor color = GColorFromRGB(0, alpha, b_val);
             graphics_context_set_fill_color(ctx, color);
             graphics_fill_rect(ctx, GRect(x, y, 4, 3), 0, GCornerNone);
         }
@@ -299,7 +289,8 @@ static void canvas_update_proc(Layer *layer, GContext *ctx) {
     for (int i = 0; i < CHART_POINTS - 1; i++) {
         int y1 = ct + (chart_y[i] - chart_y_base) * ch / chart_y_range;
         int y2 = ct + (chart_y[i+1] - chart_y_base) * ch / chart_y_range;
-        y1 = CLAMP(y1, ct, cb); y2 = CLAMP(y2, ct, cb);
+        y1 = y1 < ct ? ct : (y1 > cb ? cb : y1);
+        y2 = y2 < ct ? ct : (y2 > cb ? cb : y2);
         graphics_context_set_stroke_color(ctx, theme->chart_line);
         graphics_context_set_stroke_width(ctx, 2);
         graphics_draw_line(ctx, GPoint(chart_x[i], y1), GPoint(chart_x[i+1], y2));
@@ -307,7 +298,7 @@ static void canvas_update_proc(Layer *layer, GContext *ctx) {
     
     // Current dot with pulse
     int lx = chart_x[CHART_POINTS-1], ly = ct + (chart_y[CHART_POINTS-1] - chart_y_base) * ch / chart_y_range;
-    ly = CLAMP(ly, ct, cb);
+    ly = ly < ct ? ct : (ly > cb ? cb : ly);
     int pulse = 8 + (s_frame % 10);
     graphics_context_set_stroke_color(ctx, theme->chart_line);
     graphics_draw_circle(ctx, GPoint(lx, ly), pulse);
