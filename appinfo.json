@@ -1,10 +1,10 @@
 {
   "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   "shortName": "Loop CGM",
-  "longName": "Loop CGM Monitor",
+  "longName": "Loop CGM Watchface",
   "companyName": "LoopKit",
   "versionCode": 1,
-  "versionLabel": "1.0",
+  "versionLabel": "2.0",
   "sdkVersion": "3",
   "enableMultiJS": true,
   "targetPlatforms": [
@@ -15,7 +15,7 @@
     "emery"
   ],
   "watchapp": {
-    "watchface": false,
+    "watchface": true,
     "hiddenApp": false,
     "onlyShownOnCommunication": false
   },
