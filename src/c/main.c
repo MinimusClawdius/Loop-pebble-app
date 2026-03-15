@@ -8,6 +8,17 @@
 #include <pebble.h>
 #include <stdlib.h>
 
+// Helper macros
+#ifndef MIN
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#endif
+#ifndef MAX
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#endif
+#ifndef CLAMP
+#define CLAMP(x, low, high) (((x) < (low)) ? (low) : (((x) > (high)) ? (high) : (x)))
+#endif
+
 // ==================== Theme Definitions ====================
 
 typedef enum {
@@ -93,14 +104,12 @@ static Layer *s_battery_layer;
 
 static ThemeId s_current_theme = THEME_MATRIX_BRIGHT;
 static int current_bg = 125;
-static int current_bg_delta = 3;
 static time_t last_reading_time = 0;
 static bool loop_is_active = true;
 static int current_iob = 25;
 static bool has_data = true;
 static uint8_t current_trend = 4;
 static int battery_level = 85;
-static bool battery_charging = false;
 
 #define CHART_POINTS 9
 static int chart_x[] = {10, 25, 40, 55, 70, 85, 100, 115, 130};
