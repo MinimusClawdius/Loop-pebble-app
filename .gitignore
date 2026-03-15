@@ -1,0 +1,6 @@
+build/
+node_modules/
+.lock-waf*
+*.pbw
+.env
+src/pkjs/node_modules/
