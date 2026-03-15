@@ -1,98 +1,97 @@
-# Loop CGM - Pebble Watchapp
+# Loop CGM Matrix - Pebble Watchface
 
-A Pebble smartwatch app for monitoring Loop insulin pump CGM data.
+A beautiful, animated CGM watchface for Loop with 8 selectable themes including the signature Matrix Rain effect.
+
+## Themes
+
+| # | Theme | Description |
+|---|-------|-------------|
+| 0 | **Aurora** | Northern lights waves with starfield |
+| 1 | **Clean White + Cyan** | Light, medical-looking with cyan accents |
+| 2 | **Dark + Warm Orange** | Cozy evening vibe with orange chart |
+| 3 | **Soft Pastel Purple** | Gentle lavender with purple chart |
+| 4 | **Ocean Blue Waves** | Fresh gradient blue background |
+| 5 | **Matrix Rain (Subtle)** | Dark cascading characters |
+| 6 | **Matrix Bright** | Intense Matrix effect (default) |
 
 ## Features
 
-- 📊 Real-time blood glucose display with trend arrows
-- 💉 Insulin on board (IOB) monitoring
-- 🍽️ Carbs on board (COB) monitoring
-- 🔄 Loop status indicator (ON/OFF)
-- 🔋 Pump battery and reservoir levels
-- 💊 Bolus requests (requires iPhone confirmation)
-- 🥗 Carb entry (requires iPhone confirmation)
-- ⚠️ Low/high glucose alerts with vibration
-- 📡 Off-grid operation (Bluetooth only)
+- 📊 Real-time blood glucose display with color coding
+- 📈 Animated chart with last 2 hours of readings
+- 💉 IOB (Insulin on Board) display
+- 🔄 Loop status indicator
+- 🔋 Battery level
+- ⏱️ Time since last reading
+- 🎨 8 beautiful themes
+- 🎬 Animated backgrounds (Matrix rain, Aurora waves)
+- ⚙️ Settings accessible via Pebble app
 
-## CloudPebble Setup
-
-This repo is designed to work with [CloudPebble](https://cloudpebble.net/):
-
-1. Go to [cloudpebble.net](https://cloudpebble.net/)
-2. Create new project
-3. Select **"Import from GitHub"**
-4. Enter this repository URL
-5. CloudPeble will automatically pull all source files
-6. Click **"Build"** to create the .pbw file
-
-## Project Structure
+## Display
 
 ```
-loop-pebble-app/
-├── appinfo.json          # App configuration
-├── package.json          # PebbleKit message keys
-├── build.sh              # Local build script
-├── src/
-│   ├── main.c            # Main watchapp code
-│   └── js/
-│       └── pebble-js-app.js  # JavaScript for API calls
-├── resources/
-│   └── images/
-│       ├── icon.png          # Main app icon
-│       ├── icon_bolus.png    # Bolus menu icon
-│       ├── icon_carbs.png    # Carbs menu icon
-│       ├── icon_alert.png    # Alert icon
-│       ├── icon_check.png    # Checkmark icon
-│       └── icon_reject.png   # Reject icon
-└── publish-package/      # Assets for Rebble Appstore upload
+┌─────────────────────┐
+│       12:30         │
+│                     │
+│       125  >        │ ← Large BG + trend
+│                     │
+│  ┌───────────────┐  │
+│  │ ~~~chart~~~●  │  │ ← Animated chart
+│  └───────────────┘  │
+│                     │
+│      IOB 2.5U       │
+│  >>> LOOPING <<<    │
+│     SYS: 2m AGO     │
+│                     │
+│                  85%│
+└─────────────────────┘
 ```
 
-## Local Build
+## Color Coding
 
-If you have the Pebble SDK installed:
+- 🟢 **Green**: In range (70-180 mg/dL)
+- 🟠 **Orange**: High (>180 mg/dL)
+- 🔴 **Red**: Low (<70 mg/dL)
 
-```bash
-./build.sh
-```
+## Settings
 
-Or manually:
-
-```bash
-pebble build
-```
+1. Open Pebble app on your phone
+2. Find "Loop CGM Matrix" in your watchfaces
+3. Tap the settings gear icon
+4. Select your preferred theme
+5. Save
 
 ## Installation
 
 ### Via CloudPebble
-1. Build in CloudPebble
-2. Click "Run" to launch in emulator
-3. Or click "Install on Phone" to send to your watch
+
+1. Import this GitHub repo into CloudPebble
+2. Build
+3. Install to your Pebble
 
 ### Via Rebble Appstore
-1. Build the .pbw file
-2. Go to [dev-portal.rebble.io](https://dev-portal.rebble.io/)
-3. Upload the .pbw and publish
 
-### Via Direct Install
-```bash
-pebble install --phone <phone-ip>
-```
+Search for "Loop CGM Matrix" in the Pebble app.
 
 ## Requirements
 
 - Pebble smartwatch (any model)
-- [Rebble app](https://rebble.io/howto/) installed on iPhone
-- [Loop iOS app](https://github.com/MinimusClawdius/LoopWorkspace) with PebbleService integration
+- [Rebble app](https://rebble.io/howto/) on iPhone
+- [Loop iOS app](https://github.com/MinimusClawdius/LoopWorkspace) with PebbleService
 
-## Safety
+## Companion App
 
-All commands (bolus/carbs) require explicit confirmation on your iPhone before execution. Commands expire after 5 minutes if not confirmed.
+Install [Loop Actions](https://github.com/MinimusClawdius/Loop-actions-app) for bolus and carb entry from your Pebble.
 
-## Related
+## Demo Mode
 
-- [LoopWorkspace](https://github.com/MinimusClawdius/LoopWorkspace) - Main Loop app with PebbleService
-- [Rebble](https://rebble.io/) - Keeping Pebble alive
-- [Pebble Developer Docs](https://developer.rebble.io/)
+The watchface includes demo data so you can see how it looks without connecting to Loop. To connect to real data, ensure the Loop app with PebbleService is running on your iPhone.
+
+## Technical Details
+
+- Animation: 80ms frame rate (~12fps)
+- Chart: Last 9 readings displayed
+- Settings: Stored in persistent storage
+- API: Connects to localhost:8080 on iPhone
 
 ## License
 
