@@ -1,0 +1,57 @@
+{
+    "displayName": "Loop CGM Matrix",
+    "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "messageKeys": {
+        "KEY_GLUCOSE": 0,
+        "KEY_TREND": 1,
+        "KEY_IOB": 2,
+        "KEY_IS_CLOSED_LOOP": 3,
+        "KEY_COB": 4,
+        "KEY_BATTERY": 5,
+        "KEY_GLUCOSE_DATE": 6,
+        "KEY_THEME": 8,
+        "KEY_REQUEST_DATA": 9,
+        "KEY_LOW_THRESHOLD": 10,
+        "KEY_HIGH_THRESHOLD": 11
+    },
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk",
+        "diorite",
+        "emery"
+    ],
+    "watchapp": {
+        "watchface": true
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "resources": {
+        "media": []
+    },
+    "clay": {
+        "configPage": "config-page.html",
+        "autoEnableConfig": true
+    },
+    "name": "loop-cgm",
+    "shortName": "Loop CGM Matrix",
+    "longName": "Loop CGM Matrix",
+    "versionLabel": "4.1",
+    "companyName": "LoopKit",
+    "appKeys": {
+        "KEY_GLUCOSE": 0,
+        "KEY_TREND": 1,
+        "KEY_IOB": 2,
+        "KEY_IS_CLOSED_LOOP": 3,
+        "KEY_COB": 4,
+        "KEY_BATTERY": 5,
+        "KEY_GLUCOSE_DATE": 6,
+        "KEY_THEME": 8,
+        "KEY_REQUEST_DATA": 9,
+        "KEY_LOW_THRESHOLD": 10,
+        "KEY_HIGH_THRESHOLD": 11
+    }
+}
