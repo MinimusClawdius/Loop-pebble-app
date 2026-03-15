@@ -47,7 +47,7 @@ PEBBLE_SDK_ROOT = '/home/jt/.pebble-sdk/SDKs/current/sdk-core/pebble'
 PLATFORM = {'NAME': 'emery', 'MAX_APP_BINARY_SIZE': 131072, 'MAX_APP_MEMORY_SIZE': 131072, 'MAX_WORKER_MEMORY_SIZE': 10240, 'MAX_RESOURCES_SIZE_APPSTORE': 262144, 'MAX_RESOURCES_SIZE': 1048576, 'DEFINES': ['PBL_PLATFORM_EMERY', 'PBL_COLOR', 'PBL_RECT', 'PBL_MICROPHONE', 'PBL_SMARTSTRAP', 'PBL_HEALTH', 'PBL_SMARTSTRAP_POWER', 'PBL_COMPASS', 'PBL_DISPLAY_WIDTH=200', 'PBL_DISPLAY_HEIGHT=228'], 'BUILD_DIR': 'emery', 'BUNDLE_BIN_DIR': 'emery', 'ADDITIONAL_TEXT_LINES_FOR_PEBBLE_H': [], 'MAX_FONT_GLYPH_SIZE': 512, 'TAGS': ['emery', 'color', 'rect', 'mic', 'strap', 'health', 'strappower', 'compass', '200w', '228h']}
 PLATFORM_NAME = 'emery'
 PREFIX = '/usr/local'
-PROJECT_INFO = {'displayName': 'Loop CGM Matrix', 'uuid': 'a1b2c3d4-e5f6-7890-abcd-ef1234567890', 'sdkVersion': '3', 'enableMultiJS': True, 'messageKeys': {'KEY_GLUCOSE': 0, 'KEY_TREND': 1, 'KEY_IOB': 2, 'KEY_IS_CLOSED_LOOP': 3, 'KEY_COB': 4, 'KEY_BATTERY': 5, 'KEY_GLUCOSE_DATE': 6, 'KEY_THEME': 8, 'KEY_REQUEST_DATA': 9, 'KEY_LOW_THRESHOLD': 10, 'KEY_HIGH_THRESHOLD': 11}, 'targetPlatforms': ['aplite', 'basalt', 'chalk', 'diorite', 'emery'], 'watchapp': {'watchface': True}, 'capabilities': ['configurable'], 'resources': {'media': []}, 'name': 'loop-cgm', 'shortName': 'Loop CGM Matrix', 'longName': 'Loop CGM Matrix', 'versionLabel': '4.1', 'companyName': 'LoopKit', 'appKeys': {'KEY_GLUCOSE': 0, 'KEY_TREND': 1, 'KEY_IOB': 2, 'KEY_IS_CLOSED_LOOP': 3, 'KEY_COB': 4, 'KEY_BATTERY': 5, 'KEY_GLUCOSE_DATE': 6, 'KEY_THEME': 8, 'KEY_REQUEST_DATA': 9, 'KEY_LOW_THRESHOLD': 10, 'KEY_HIGH_THRESHOLD': 11}}
+PROJECT_INFO = {'displayName': 'Loop CGM Matrix', 'uuid': 'a1b2c3d4-e5f6-7890-abcd-ef1234567890', 'sdkVersion': '3', 'enableMultiJS': True, 'messageKeys': {'KEY_GLUCOSE': 0, 'KEY_TREND': 1, 'KEY_IOB': 2, 'KEY_IS_CLOSED_LOOP': 3, 'KEY_COB': 4, 'KEY_BATTERY': 5, 'KEY_GLUCOSE_DATE': 6, 'KEY_THEME': 8, 'KEY_REQUEST_DATA': 9, 'KEY_LOW_THRESHOLD': 10, 'KEY_HIGH_THRESHOLD': 11}, 'targetPlatforms': ['aplite', 'basalt', 'chalk', 'diorite', 'emery'], 'watchapp': {'watchface': True}, 'capabilities': ['configurable'], 'resources': {'media': []}, 'clay': {'configPage': 'config-page.html', 'autoEnableConfig': True}, 'name': 'loop-cgm', 'shortName': 'Loop CGM Matrix', 'longName': 'Loop CGM Matrix', 'versionLabel': '4.1', 'companyName': 'LoopKit', 'appKeys': {'KEY_GLUCOSE': 0, 'KEY_TREND': 1, 'KEY_IOB': 2, 'KEY_IS_CLOSED_LOOP': 3, 'KEY_COB': 4, 'KEY_BATTERY': 5, 'KEY_GLUCOSE_DATE': 6, 'KEY_THEME': 8, 'KEY_REQUEST_DATA': 9, 'KEY_LOW_THRESHOLD': 10, 'KEY_HIGH_THRESHOLD': 11}}
 REQUESTED_PLATFORMS = ['aplite', 'basalt', 'chalk', 'diorite', 'emery']
 RESOURCES_JSON = []
 RPATH_ST = '-Wl,-rpath,%s'
@@ -62,7 +62,7 @@ STLIB_MARKER = None
 STLIB_ST = '-l%s'
 SUPPORTED_PLATFORMS = ['flint', 'emery', 'gabbro', 'basalt', 'chalk', 'diorite', 'aplite']
 TARGET_PLATFORMS = ['emery', 'diorite', 'chalk', 'basalt', 'aplite']
-TIMESTAMP = 1773606702
+TIMESTAMP = 1773607690
 USE_GROUPS = True
 VERBOSE = 0
 WEBPACK = ['/home/jt/.pebble-sdk/SDKs/current/node_modules/.bin/webpack']

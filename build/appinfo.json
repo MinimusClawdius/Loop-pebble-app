@@ -32,6 +32,10 @@
     "resources": {
         "media": []
     },
+    "clay": {
+        "configPage": "config-page.html",
+        "autoEnableConfig": true
+    },
     "name": "loop-cgm",
     "shortName": "Loop CGM Matrix",
     "longName": "Loop CGM Matrix",

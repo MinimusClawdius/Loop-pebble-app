@@ -2,7 +2,9 @@
   "name": "loop-cgm",
   "author": "LoopKit",
   "version": "4.1.0",
-  "keywords": ["pebble-app"],
+  "keywords": [
+    "pebble-app"
+  ],
   "private": true,
   "dependencies": {
     "pebble-clay": "^1.0.0"
@@ -25,13 +27,25 @@
       "KEY_LOW_THRESHOLD": 10,
       "KEY_HIGH_THRESHOLD": 11
     },
-    "targetPlatforms": ["aplite", "basalt", "chalk", "diorite", "emery"],
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk",
+      "diorite",
+      "emery"
+    ],
     "watchapp": {
       "watchface": true
     },
-    "capabilities": ["configurable"],
+    "capabilities": [
+      "configurable"
+    ],
     "resources": {
       "media": []
+    },
+    "clay": {
+      "configPage": "config-page.html",
+      "autoEnableConfig": true
     }
   }
 }
