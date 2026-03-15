@@ -2,20 +2,19 @@
  * Loop CGM Watchface - PebbleKit JavaScript
  * 
  * Fetches CGM data from iPhone's local HTTP server
- * Sends to watchface for display
  */
 
 var API_BASE = 'http://127.0.0.1:8080';
 
-// Trend arrow mapping for display
-var TREND_ARROWS = {
-  'UP_UP_UP': '↑↑↑',
-  'UP_UP': '↑↑',
-  'UP': '↑',
-  'FLAT': '→',
-  'DOWN': '↓',
-  'DOWN_DOWN': '↓↓',
-  'DOWN_DOWN_DOWN': '↓↓↓'
+// Trend mapping: API trend strings to Pebble indices
+var TREND_MAP = {
+  'UP_UP_UP': 1,
+  'UP_UP': 2,
+  'UP': 3,
+  'FLAT': 4,
+  'DOWN': 5,
+  'DOWN_DOWN': 6,
+  'DOWN_DOWN_DOWN': 7
 };
 
 function fetchCGMData() {
@@ -55,68 +54,50 @@ function sendToWatch(data) {
     message.KEY_GLUCOSE = Math.round(data.cgm.glucose);
   }
   
-  // Trend arrow
+  // Trend (convert to index)
   if (data.cgm && data.cgm.trend) {
-    // Convert trend symbol to arrow
-    var trend = data.cgm.trend;
-    if (TREND_ARROWS[trend]) {
-      message.KEY_TREND = TREND_ARROWS[trend];
-    } else {
-      message.KEY_TREND = trend;
-    }
+    message.KEY_TREND = TREND_MAP[data.cgm.trend] || 0;
   }
   
-  // Glucose date (for time ago calculation)
+  // Glucose date
   if (data.cgm && data.cgm.date) {
     var date = new Date(data.cgm.date);
     message.KEY_GLUCOSE_DATE = Math.floor(date.getTime() / 1000);
   }
   
-  // Calculate delta if not provided
-  if (data.cgm && data.cgm.glucose !== null) {
-    // Delta would come from server if available
-    // For now, we'll let the server provide it
-  }
-  
-  // IOB (insulin on board) - send as integer x10
+  // IOB
   if (data.loop && data.loop.iob !== null) {
     message.KEY_IOB = Math.round(data.loop.iob * 10);
   }
   
-  // COB (carbs on board)
+  // COB
   if (data.loop && data.loop.cob !== null) {
     message.KEY_COB = Math.round(data.loop.cob);
   }
   
-  // Loop status (closed loop on/off)
+  // Loop status
   if (data.loop) {
     message.KEY_IS_CLOSED_LOOP = data.loop.isClosedLoop ? 1 : 0;
   }
   
-  // Pump battery
+  // Battery
   if (data.pump && data.pump.battery !== null) {
     message.KEY_BATTERY = Math.round(data.pump.battery);
   }
   
-  console.log('Sending to watch: ' + JSON.stringify(message));
+  console.log('Sending: ' + JSON.stringify(message));
   
   Pebble.sendAppMessage(message,
-    function() {
-      console.log('Message sent successfully');
-    },
-    function(e) {
-      console.log('Message send failed: ' + JSON.stringify(e));
-    }
+    function() { console.log('Message sent'); },
+    function(e) { console.log('Send failed: ' + JSON.stringify(e)); }
   );
 }
 
 // Handle watch requests
 Pebble.addEventListener('appmessage', function(e) {
-  console.log('Watch requested data');
   fetchCGMData();
 });
 
-// On ready, fetch initial data
 Pebble.addEventListener('ready', function() {
   console.log('PebbleKit JS ready');
   fetchCGMData();
@@ -124,6 +105,5 @@ Pebble.addEventListener('ready', function() {
 
 // Auto-refresh every 5 minutes
 setInterval(function() {
-  console.log('Auto-refreshing CGM data');
   fetchCGMData();
 }, 5 * 60 * 1000);
