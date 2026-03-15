@@ -1,8 +1,9 @@
 /*
- * Loop CGM Watchface - Multi-Theme Edition
+ * Loop CGM Watchface - Multi-Theme Edition v3.1
  * 
  * 8 selectable themes including Aurora, Ocean, Neon, Matrix, etc.
  * Settings accessible via Pebble app configuration
+ * Fixed: No external macros - all ternary inline
  */
 
 #include <pebble.h>

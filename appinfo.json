@@ -4,7 +4,7 @@
   "longName": "Loop CGM Watchface",
   "companyName": "LoopKit",
   "versionCode": 1,
-  "versionLabel": "2.0",
+  "versionLabel": "3.1",
   "sdkVersion": "3",
   "enableMultiJS": true,
   "targetPlatforms": [
