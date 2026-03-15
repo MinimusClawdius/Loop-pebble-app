@@ -4,3 +4,5 @@ node_modules/
 *.pbw
 .env
 src/pkjs/node_modules/
+src/c/message_keys.auto.h
+src/resource_ids.auto.h
