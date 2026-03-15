@@ -30,22 +30,21 @@ static TextLayer *s_cob_layer;          // Carbs on board
 // Status bar
 static TextLayer *s_battery_layer;
 static BitmapLayer *s_bt_icon_layer;
-static GBitmap *s_bt_icon_bitmap;
 
 // Graph layer for BG history
 static Layer *s_graph_layer;
 
 // ==================== Data Storage ====================
 
-static char bg_buffer[8] = "--";
+static char bg_buffer[12] = "--";
 static char trend_buffer[4] = "";
-static char delta_buffer[10] = "";
-static char ago_buffer[12] = "";
-static char iob_buffer[16] = "";
-static char cob_buffer[16] = "";
+static char delta_buffer[12] = "";
+static char ago_buffer[16] = "";
+static char iob_buffer[20] = "";
+static char cob_buffer[20] = "";
 static char loop_buffer[4] = "";
 static char time_buffer[8] = "";
-static char date_buffer[12] = "";
+static char date_buffer[16] = "";
 static char battery_buffer[8] = "";
 
 // BG history for graph (last 12 readings, ~1 hour)
@@ -247,7 +246,7 @@ static void update_display(void) {
   if (current_bg_delta != 0) {
     snprintf(delta_buffer, sizeof(delta_buffer), "%+d", current_bg_delta);
   } else {
-    snprintf(delta_buffer, sizeof(delta_buffer), "");
+    snprintf(delta_buffer, sizeof(delta_buffer), " ");
   }
   text_layer_set_text(s_delta_layer, delta_buffer);
   
