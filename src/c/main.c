@@ -7,6 +7,7 @@
  */
 
 #include <pebble.h>
+#include <stdlib.h>
 
 // ==================== Theme Definitions ====================
 
@@ -435,12 +436,8 @@ static void anim_timer_callback(void *data) {
 // ==================== Tick Handler ====================
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
-    (void)tick_time;
-    (void)units_changed;
     layer_mark_dirty(s_canvas_layer);
-    time_t now = time(NULL);
-    struct tm *now_tm = localtime(&now);
-    if (now_tm->tm_min % 5 == 0) {
+    if (tick_time->tm_min % 5 == 0) {
         DictionaryIterator *iter;
         if (app_message_outbox_begin(&iter) == APP_MSG_OK) {
             dict_write_uint8(iter, KEY_REQUEST_DATA, 1);
