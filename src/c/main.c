@@ -7,7 +7,6 @@
  */
 
 #include <pebble.h>
-#include <stdlib.h>
 
 // ==================== Theme Definitions ====================
 
