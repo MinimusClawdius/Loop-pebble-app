@@ -40,18 +40,5 @@
     "shortName": "Loop CGM Matrix",
     "longName": "Loop CGM Matrix",
     "versionLabel": "4.1",
-    "companyName": "LoopKit",
-    "appKeys": {
-        "KEY_GLUCOSE": 0,
-        "KEY_TREND": 1,
-        "KEY_IOB": 2,
-        "KEY_IS_CLOSED_LOOP": 3,
-        "KEY_COB": 4,
-        "KEY_BATTERY": 5,
-        "KEY_GLUCOSE_DATE": 6,
-        "KEY_THEME": 8,
-        "KEY_REQUEST_DATA": 9,
-        "KEY_LOW_THRESHOLD": 10,
-        "KEY_HIGH_THRESHOLD": 11
-    }
+    "companyName": "LoopKit"
 }
